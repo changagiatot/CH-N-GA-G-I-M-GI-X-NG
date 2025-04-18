@@ -1,0 +1,50 @@
+import React from 'react';
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+
+const products = [
+  {
+    id: 1,
+    name: "Bộ chăn ga cotton lụa cao cấp",
+    price: "1.250.000đ",
+    image: "https://via.placeholder.com/300x200?text=Chan+Ga+Goi+1",
+  },
+  {
+    id: 2,
+    name: "Bộ chăn ga gối họa tiết Bắc Âu",
+    price: "985.000đ",
+    image: "https://via.placeholder.com/300x200?text=Chan+Ga+Goi+2",
+  },
+  {
+    id: 3,
+    name: "Combo chăn hè và gối nằm thoáng khí",
+    price: "790.000đ",
+    image: "https://via.placeholder.com/300x200?text=Chan+Ga+Goi+3",
+  }
+];
+
+export default function BeddingStore() {
+  return (
+    <div className="p-4 max-w-screen-xl mx-auto">
+      <div className="text-2xl font-bold mb-4">Cửa Hàng Chăn Ga Gối Cao Cấp</div>
+      <Input placeholder="Tìm sản phẩm..." className="mb-6" />
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        {products.map((product) => (
+          <Card key={product.id} className="hover:shadow-lg transition-shadow">
+            <img
+              src={product.image}
+              alt={product.name}
+              className="w-full h-48 object-cover rounded-t-xl"
+            />
+            <CardContent className="p-4">
+              <h3 className="text-lg font-semibold mb-2">{product.name}</h3>
+              <p className="text-blue-600 font-bold mb-3">{product.price}</p>
+              <Button className="w-full">Thêm vào giỏ</Button>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+    </div>
+  );
+}
